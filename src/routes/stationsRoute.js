@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const stationController = require('../controllers/stationController');
 
-router.get('/', (req, res) => res.send('Stations route'));
+router.get('/',stationController.getTrainsByStation );
+
 
 module.exports = router;
