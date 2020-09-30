@@ -1,7 +1,5 @@
-const dbConnection = require('../dbConfig');
+const dbConnection = require("../dbConfig");
 
-const UserController = {
+const trainController = {};
 
-}
-
-module.exports = UserController;
+module.exports = trainController;
