@@ -3,7 +3,7 @@ const router = express.Router();
 const moveController = require('../controllers/moveController');
 
 // Test Purpose only
-router.get('/', (req, res) => res.send('Move Route'));
+router.get('/', moveController.getAll);
 
 // Select Train by ID (Test Purpose)
 router.get('/:id', moveController.getTrain);

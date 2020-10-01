@@ -1,8 +1,10 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const router = express.Router();
 require('dotenv').config();
 
+app.use(cors());
 // Setup of Routes
 app.use('/stations', require('./routes/stationsRoute')); 
 app.use('/trains', require('./routes/trainsRoute'));

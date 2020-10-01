@@ -1,6 +1,15 @@
 const dbConnection = require('../dbConfig');
 
 const UserController = {
+    // Get all trains and their current station
+    getAll: (req, res, next) => {
+        dbConnection
+            .query(`SELECT trains.name AS train, stations.name AS station
+                    FROM "trains" LEFT JOIN "stations" ON stations.id = trains.current_station
+                    ORDER BY trains.name`)
+            .then((data) => res.json(data.rows))
+            .catch((e) => console.log(e));
+    },
     getTrain: (req, res, next) => {
         const { id } = req.params;
         dbConnection
