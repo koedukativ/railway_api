@@ -2,14 +2,24 @@ const dbConnection = require('../dbConfig');
 
 const UserController = {
     // Get all trains and their current station
-    getAll: (req, res, next) => {
+    getAllTrains: (req, res, next) => {
         dbConnection
-            .query(`SELECT trains.name AS train, stations.name AS station
+            .query(`SELECT trains.name AS train, trains.id AS train_id, stations.id AS station_id, stations.name AS station
                     FROM "trains" LEFT JOIN "stations" ON stations.id = trains.current_station
                     ORDER BY trains.name`)
             .then((data) => res.json(data.rows))
             .catch((e) => console.log(e));
     },
+
+    getAllStations: (req, res, next) => {
+        dbConnection
+            .query(`SELECT id, name 
+                    FROM "stations" 
+                    ORDER BY name`)
+            .then((data) => res.json(data.rows))
+            .catch((e) => console.log(e));
+    },
+
     getTrain: (req, res, next) => {
         const { id } = req.params;
         dbConnection
@@ -17,10 +27,7 @@ const UserController = {
             .then((data) => res.json(data.rows))
             .catch((e) => console.log(e));
     },
-    // Additional error checking: 
-    // 1. Train does not exist or NaN
-    // 2. Station does not exist or NaN
-    
+
     // Move a Train to a Station params: 'station'
     moveTrain: (req, res, next) => {
         const { id } = req.params;
