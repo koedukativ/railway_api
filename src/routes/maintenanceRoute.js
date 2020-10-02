@@ -2,9 +2,8 @@ const express = require("express");
 const router = express.Router();
 const maintenanceController = require('../controllers/maintenanceController');
 
+// for all prefixed with /maintenance/
 router.get("/", maintenanceController.getAll);
-/*router.get("/:id", maintenanceController.getSingleUser);
-router.put("/:id", maintenanceController.updateUser);
-router.delete("/:id", maintenanceController.deleteUser);*/
+router.put("/", maintenanceController.updateMaintenance);
 
 module.exports = router;

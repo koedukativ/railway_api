@@ -1,4 +1,5 @@
 const express = require('express');
+var bodyParser = require('body-parser');
 const app = express();
 const cors = require("cors");
 const router = express.Router();
@@ -12,6 +13,10 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
+
+/* required to correctly transfer data in request body */
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // Setup of Routes
 app.use('/stations', require('./routes/stationsRoute')); 
