@@ -10,5 +10,4 @@ const stationController = {
       .catch((e) => console.log(e));
   },
 };
-
 module.exports = stationController;

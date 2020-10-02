@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const router = express.Router();
+require("dotenv").config();
 
 // Setup of Routes
 app.use("/stations", require("./routes/stationsRoute"));
