@@ -4,10 +4,12 @@ const UserController = {
 
 getTrainsByStation: (req, res, next) => {
     const sql = `
-    SELECT *
-    FROM trains 
-    LEFT JOIN stations 
-    ON stations.id = trains.current_station;`
+    SELECT s.id, s.country||' > '||s.city||' > '||s.name||' ('||count(t.id)||')' as dropdownlabel
+    FROM stations s
+    LEFT JOIN trains t
+    ON t.current_station=s.id
+    GROUP BY s.id
+    ORDER by s.country, s.city, s.name;`
     
 
     dbConnection.query(sql)
@@ -17,14 +19,14 @@ getTrainsByStation: (req, res, next) => {
 
 },
 selectStation:(req, res, next) => {
-const { id } = req.params;
-const stationSql = `
+    const { id } = req.params;
+    const trainSql = `
 
-SELECT * FROM "trains" WHERE current_station=${id};`;
-dbConnection.query(stationSql)
-.then((data) => 
-{return res.json(data.rows)})
-.catch(err => console.log(err) )  
+    SELECT * FROM "trains" WHERE current_station=${id};`;
+    dbConnection.query(trainSql)
+    .then((data) => 
+    {return res.json(data.rows)})
+    .catch(err => console.log(err) )  
 }
 
     
