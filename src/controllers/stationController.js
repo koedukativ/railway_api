@@ -8,12 +8,23 @@ getTrainsByStation: (req, res, next) => {
     FROM trains 
     LEFT JOIN stations 
     ON stations.id = trains.current_station;`
+    
 
     dbConnection.query(sql)
     .then((data) => 
     {return res.json(data.rows)})
     .catch(err => console.log(err) )  
 
+},
+selectStation:(req, res, next) => {
+const { id } = req.params;
+const stationSql = `
+
+SELECT * FROM "trains" WHERE current_station=${id};`;
+dbConnection.query(stationSql)
+.then((data) => 
+{return res.json(data.rows)})
+.catch(err => console.log(err) )  
 }
 
     
