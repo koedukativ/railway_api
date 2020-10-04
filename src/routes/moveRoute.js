@@ -12,6 +12,6 @@ router.get('/stations', moveController.getAllStations);
 router.get('/:id', moveController.getTrain);
 
 // Update Train Station by ID
-router.put('/:id', moveController.moveTrain);
+router.put('/', moveController.moveTrain);
 
 module.exports = router;
