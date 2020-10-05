@@ -1,9 +1,12 @@
+const cors = require('cors');
 const express = require('express');
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 const app = express();
 const cors = require("cors");
 const router = express.Router();
 require('dotenv').config();
+const logging = require('./logging/logging');
+
 
 
 /* CORS handling to be able to access endpoints from POSTMAN and others */
@@ -21,7 +24,10 @@ app.use(bodyParser.json());
 
 
 app.use(cors());
+app.use(logging);
+
 // Setup of Routes
+app.use(cors());
 app.use('/stations', require('./routes/stationsRoute')); 
 app.use('/trains', require('./routes/trainsRoute'));
 app.use('/maintenance', require('./routes/maintenanceRoute'));
