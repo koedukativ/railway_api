@@ -4,7 +4,7 @@ const UserController = {
     // Get all trains and their current station
     getAllTrains: (req, res, next) => {
         dbConnection
-            .query(`SELECT trains.name AS train, trains.id AS train_id, stations.id AS station_id, stations.name AS station
+            .query(`SELECT trains.name AS train, trains.id AS train_id, trains.company AS company stations.id AS station_id, stations.name AS station
                     FROM "trains" LEFT JOIN "stations" ON stations.id = trains.current_station
                     ORDER BY train_id`)
             .then((data) => res.json(data.rows))
