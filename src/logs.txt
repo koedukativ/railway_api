@@ -1,0 +1,8 @@
+[formatted_date];GET:/maintenance/;200;durationInMilliseconds.toLocaleString() + "ms"
+[formatted_date];GET:/stations;200;durationInMilliseconds.toLocaleString() + "ms"
+[formatted_date];GET:/maintenance/;200;durationInMilliseconds.toLocaleString() + "ms"
+[formatted_date];GET:/maintenance/;200;durationInMilliseconds.toLocaleString() + "ms"
+[formatted_date];GET:/move/;200;durationInMilliseconds.toLocaleString() + "ms"
+[formatted_date];GET:/move/stations/;200;durationInMilliseconds.toLocaleString() + "ms"
+[formatted_date];GET:/maintenance/;200;durationInMilliseconds.toLocaleString() + "ms"
+[formatted_date];GET:/stations;200;durationInMilliseconds.toLocaleString() + "ms"
