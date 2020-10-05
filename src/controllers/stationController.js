@@ -27,7 +27,18 @@ selectStation:(req, res, next) => {
     .then((data) => 
     {return res.json(data.rows)})
     .catch(err => console.log(err) )  
-}
+},
+getAllTrains: (req, res, next) => {
+    const sql = `
+    SELECT * from trains;`
+    
+
+    dbConnection.query(sql)
+    .then((data) => 
+    {return res.json(data.rows)})
+    .catch(err => console.log(err) )  
+
+},
 
     
 }
