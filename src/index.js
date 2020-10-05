@@ -2,7 +2,6 @@ const cors = require('cors');
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const cors = require("cors");
 const router = express.Router();
 require('dotenv').config();
 const logging = require('./logging/logging');
