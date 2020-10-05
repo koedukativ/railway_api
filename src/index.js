@@ -1,3 +1,4 @@
+const cors = require('cors');
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
@@ -26,6 +27,7 @@ app.use(cors());
 app.use(logging);
 
 // Setup of Routes
+app.use(cors());
 app.use('/stations', require('./routes/stationsRoute')); 
 app.use('/trains', require('./routes/trainsRoute'));
 app.use('/maintenance', require('./routes/maintenanceRoute'));
