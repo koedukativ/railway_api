@@ -1,2 +1,3 @@
 [formatted_date];PUT:/maintenance;200;durationInMilliseconds.toLocaleString() + "ms"
 [formatted_date];GET:/maintenance/;200;durationInMilliseconds.toLocaleString() + "ms"
+[formatted_date];GET:/maintenance/;200;durationInMilliseconds.toLocaleString() + "ms"
