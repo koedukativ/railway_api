@@ -15,7 +15,7 @@ const UserController = {
         dbConnection
             .query(`SELECT id, name 
                     FROM "stations" 
-                    ORDER BY name`)
+                    ORDER BY id`)
             .then((data) => res.json(data.rows))
             .catch((e) => console.log(e));
     },
