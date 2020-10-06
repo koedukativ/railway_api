@@ -10,7 +10,7 @@ const stationController = {
       .then((data) => res.json(data.rows))
       .catch((e) => console.log(e));
   },
-};
+
 
 getTrainsByStation: (req, res, next) => {
     const sql = `
