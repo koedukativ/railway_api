@@ -1,3 +1,4 @@
+
 const cors = require('cors');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -8,11 +9,13 @@ const logging = require('./logging/logging');
 
 
 
+
 /* CORS handling to be able to access endpoints from POSTMAN and others */
 app.use(cors({ origin: "*" }));
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
+
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
@@ -28,6 +31,7 @@ app.use('/stations', require('./routes/stationsRoute'));
 app.use('/trains', require('./routes/trainsRoute'));
 app.use('/maintenance', require('./routes/maintenanceRoute'));
 app.use('/move', require('./routes/moveRoute'));
+
 
 
 // Declare Port 3001 as default
