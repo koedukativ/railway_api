@@ -13,7 +13,7 @@ const trainController = {
 };
 module.exports = trainController;
 
-};
+
 
 
 
