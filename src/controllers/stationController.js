@@ -2,7 +2,7 @@ const dbConnection = require("../dbConfig");
 
 const stationController = {
   getAll: (req, res) => {
-    const queryString = 'SELECT * FROM "stations";';
+    const queryString = 'SELECT * FROM "stations" ORDER BY name;';
 
     dbConnection
       .query(queryString)
